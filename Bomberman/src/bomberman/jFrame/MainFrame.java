@@ -5,6 +5,8 @@
  */
 package bomberman.jFrame;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Mateusz
@@ -31,7 +33,7 @@ public class MainFrame extends javax.swing.JFrame {
         logoLabel = new javax.swing.JLabel();
         buttonStart = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        buttonExit = new javax.swing.JButton();
         labelWelcomeMessage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -47,7 +49,12 @@ public class MainFrame extends javax.swing.JFrame {
 
         jButton2.setText("jButton2");
 
-        jButton3.setText("jButton3");
+        buttonExit.setText("Wyjście");
+        buttonExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonExitMouseClicked(evt);
+            }
+        });
 
         labelWelcomeMessage.setText("Witaj Gościu!");
 
@@ -62,7 +69,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(163, 163, 163)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3)
+                    .addComponent(buttonExit)
                     .addComponent(jButton2)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(labelWelcomeMessage)
@@ -81,7 +88,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(buttonExit)
                 .addContainerGap(56, Short.MAX_VALUE))
         );
 
@@ -101,8 +108,13 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void buttonStartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonStartMouseClicked
         // TODO add your handling code here:
-        System.out.println("Rozpoczynanie rozgrywki");
+        System.out.println("Rozpoczynanie rozgrywki!!!!!");
     }//GEN-LAST:event_buttonStartMouseClicked
+
+    private void buttonExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExitMouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_buttonExitMouseClicked
 
     /**
      * @param args the command line arguments
@@ -140,9 +152,9 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonExit;
     private javax.swing.JButton buttonStart;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelWelcomeMessage;
     private javax.swing.JLabel logoLabel;
