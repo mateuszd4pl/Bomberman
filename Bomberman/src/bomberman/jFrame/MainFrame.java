@@ -29,25 +29,14 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        logoLabel = new javax.swing.JLabel();
-        buttonStart = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         buttonExit = new javax.swing.JButton();
-        labelWelcomeMessage = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        buttonStart = new javax.swing.JButton();
+        logoLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bomberman/jFrame/images/logo.png"))); // NOI18N
-
-        buttonStart.setText("start");
-        buttonStart.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonStartMouseClicked(evt);
-            }
-        });
-
-        jButton2.setText("jButton2");
+        getContentPane().setLayout(null);
 
         buttonExit.setText("Wyjście");
         buttonExit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -55,53 +44,31 @@ public class MainFrame extends javax.swing.JFrame {
                 buttonExitMouseClicked(evt);
             }
         });
+        getContentPane().add(buttonExit);
+        buttonExit.setBounds(230, 280, 81, 23);
 
-        labelWelcomeMessage.setText("Witaj Gościu!");
+        jButton2.setText("Opcje");
+        getContentPane().add(jButton2);
+        jButton2.setBounds(230, 250, 81, 23);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(113, Short.MAX_VALUE)
-                .addComponent(logoLabel)
-                .addGap(108, 108, 108))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(163, 163, 163)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonExit)
-                    .addComponent(jButton2)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(labelWelcomeMessage)
-                        .addComponent(buttonStart)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(logoLabel)
-                .addGap(2, 2, 2)
-                .addComponent(labelWelcomeMessage)
-                .addGap(2, 2, 2)
-                .addComponent(buttonStart)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addGap(18, 18, 18)
-                .addComponent(buttonExit)
-                .addContainerGap(56, Short.MAX_VALUE))
-        );
+        buttonStart.setText("Start");
+        buttonStart.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonStartMouseClicked(evt);
+            }
+        });
+        getContentPane().add(buttonStart);
+        buttonStart.setBounds(230, 220, 81, 23);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        logoLabel.setBackground(new java.awt.Color(255, 255, 255));
+        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bomberman/jFrame/images/logo.png"))); // NOI18N
+        getContentPane().add(logoLabel);
+        logoLabel.setBounds(190, 60, 179, 110);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mateusz\\Desktop\\DŻAWA\\background.png")); // NOI18N
+        jLabel1.setText("labelBackground");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 530, 370);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -155,8 +122,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton buttonExit;
     private javax.swing.JButton buttonStart;
     private javax.swing.JButton jButton2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel labelWelcomeMessage;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel logoLabel;
     // End of variables declaration//GEN-END:variables
 }
