@@ -5,6 +5,15 @@
  */
 package bomberman.jFrame;
 
+import bomberman.maps.MapLoader;
+import dataBaseTables.UserTable;
+import java.awt.CardLayout;
+import java.awt.Container;
+import java.io.FileNotFoundException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
 /**
@@ -12,12 +21,16 @@ import javax.swing.JFrame;
  * @author Mateusz
  */
 public class MainFrame extends javax.swing.JFrame {
+    
+    UserTable user;
 
+    
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
         initComponents();
+        user = new UserTable();
     }
 
     /**
@@ -29,60 +42,542 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonExit = new javax.swing.JButton();
+        instructionsButtonsGroup = new javax.swing.ButtonGroup();
+        mainPanel = new javax.swing.JPanel();
+        welcomePanel = new javax.swing.JPanel();
+        helpButton = new javax.swing.JButton();
+        startButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        buttonStart = new javax.swing.JButton();
-        logoLabel = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        welcomeLabel = new javax.swing.JLabel();
+        loginButton = new javax.swing.JButton();
+        instructionsPanel = new javax.swing.JPanel();
+        buttonsPanel = new javax.swing.JPanel();
+        backFromInstButton = new javax.swing.JButton();
+        instructions1 = new javax.swing.JRadioButton();
+        instructions2 = new javax.swing.JRadioButton();
+        instrictions3 = new javax.swing.JRadioButton();
+        displayPanel = new javax.swing.JPanel();
+        card1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        card2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        card3 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        loginPanel = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        loginTextField = new javax.swing.JTextField();
+        passwordTextField = new javax.swing.JPasswordField();
+        logInButton = new javax.swing.JButton();
+        rejestrButton = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        backFromLoginButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
 
-        buttonExit.setText("Wyjście");
-        buttonExit.addMouseListener(new java.awt.event.MouseAdapter() {
+        mainPanel.setLayout(new java.awt.CardLayout());
+
+        welcomePanel.setBackground(new java.awt.Color(0, 0, 102));
+
+        helpButton.setText("Instrukcja");
+        helpButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonExitMouseClicked(evt);
+                helpButtonMouseClicked(evt);
             }
         });
-        getContentPane().add(buttonExit);
-        buttonExit.setBounds(230, 280, 81, 23);
-
-        jButton2.setText("Opcje");
-        getContentPane().add(jButton2);
-        jButton2.setBounds(230, 250, 81, 23);
-
-        buttonStart.setText("Start");
-        buttonStart.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonStartMouseClicked(evt);
+        helpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                helpButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(buttonStart);
-        buttonStart.setBounds(230, 220, 81, 23);
 
-        logoLabel.setBackground(new java.awt.Color(255, 255, 255));
-        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bomberman/jFrame/images/logo.png"))); // NOI18N
-        getContentPane().add(logoLabel);
-        logoLabel.setBounds(190, 60, 179, 110);
+        startButton.setText("Start");
+        startButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                startButtonMouseClicked(evt);
+            }
+        });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mateusz\\Desktop\\DŻAWA\\background.png")); // NOI18N
-        jLabel1.setText("labelBackground");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 530, 370);
+        jButton1.setText("Opcje");
+
+        jButton2.setText("Wyjście");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bomberman/jFrame/images/logo.png"))); // NOI18N
+
+        welcomeLabel.setForeground(new java.awt.Color(255, 255, 0));
+        welcomeLabel.setText("Witaj Gościu!");
+
+        loginButton.setText("Zaloguj");
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout welcomePanelLayout = new javax.swing.GroupLayout(welcomePanel);
+        welcomePanel.setLayout(welcomePanelLayout);
+        welcomePanelLayout.setHorizontalGroup(
+            welcomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(welcomePanelLayout.createSequentialGroup()
+                .addGroup(welcomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, welcomePanelLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(helpButton))
+                    .addGroup(welcomePanelLayout.createSequentialGroup()
+                        .addGroup(welcomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(welcomePanelLayout.createSequentialGroup()
+                                .addGap(108, 108, 108)
+                                .addComponent(jLabel4))
+                            .addGroup(welcomePanelLayout.createSequentialGroup()
+                                .addGap(157, 157, 157)
+                                .addGroup(welcomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(startButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(welcomeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(loginButton)))
+                        .addGap(0, 255, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        welcomePanelLayout.setVerticalGroup(
+            welcomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(welcomePanelLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(welcomePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(welcomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loginButton))
+                .addGap(41, 41, 41)
+                .addComponent(startButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addComponent(helpButton)
+                .addGap(22, 22, 22))
+        );
+
+        mainPanel.add(welcomePanel, "welcomeCard");
+
+        backFromInstButton.setText("Wróć");
+        backFromInstButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backFromInstButtonMouseClicked(evt);
+            }
+        });
+        backFromInstButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backFromInstButtonActionPerformed(evt);
+            }
+        });
+
+        instructionsButtonsGroup.add(instructions1);
+        instructions1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                instructions1MouseClicked(evt);
+            }
+        });
+        instructions1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                instructions1ActionPerformed(evt);
+            }
+        });
+
+        instructionsButtonsGroup.add(instructions2);
+        instructions2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                instructions2MouseClicked(evt);
+            }
+        });
+
+        instructionsButtonsGroup.add(instrictions3);
+        instrictions3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                instrictions3MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout buttonsPanelLayout = new javax.swing.GroupLayout(buttonsPanel);
+        buttonsPanel.setLayout(buttonsPanelLayout);
+        buttonsPanelLayout.setHorizontalGroup(
+            buttonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonsPanelLayout.createSequentialGroup()
+                .addComponent(backFromInstButton)
+                .addGap(129, 129, 129)
+                .addComponent(instructions1)
+                .addGap(5, 5, 5)
+                .addComponent(instructions2)
+                .addGap(5, 5, 5)
+                .addComponent(instrictions3))
+        );
+        buttonsPanelLayout.setVerticalGroup(
+            buttonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonsPanelLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addGroup(buttonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(backFromInstButton)
+                    .addComponent(instructions1)
+                    .addComponent(instructions2)
+                    .addComponent(instrictions3))
+                .addContainerGap())
+        );
+
+        displayPanel.setLayout(new java.awt.CardLayout());
+
+        card1.setBackground(new java.awt.Color(153, 153, 0));
+
+        jLabel1.setText("Informacje dotyczące poruszania się playerów");
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bomberman/jFrame/images/man.png"))); // NOI18N
+
+        javax.swing.GroupLayout card1Layout = new javax.swing.GroupLayout(card1);
+        card1.setLayout(card1Layout);
+        card1Layout.setHorizontalGroup(
+            card1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(card1Layout.createSequentialGroup()
+                .addContainerGap(271, Short.MAX_VALUE)
+                .addGroup(card1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, card1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(75, 75, 75))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, card1Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(180, 180, 180))))
+        );
+        card1Layout.setVerticalGroup(
+            card1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(card1Layout.createSequentialGroup()
+                .addGap(98, 98, 98)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addContainerGap(101, Short.MAX_VALUE))
+        );
+
+        displayPanel.add(card1, "card1");
+
+        card2.setBackground(new java.awt.Color(153, 0, 153));
+
+        jLabel2.setText("Informacje dotyczące logiki i zasad gry");
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bomberman/jFrame/images/man.png"))); // NOI18N
+
+        javax.swing.GroupLayout card2Layout = new javax.swing.GroupLayout(card2);
+        card2.setLayout(card2Layout);
+        card2Layout.setHorizontalGroup(
+            card2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(card2Layout.createSequentialGroup()
+                .addContainerGap(299, Short.MAX_VALUE)
+                .addGroup(card2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, card2Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(84, 84, 84))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, card2Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(170, 170, 170))))
+        );
+        card2Layout.setVerticalGroup(
+            card2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(card2Layout.createSequentialGroup()
+                .addGap(107, 107, 107)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        displayPanel.add(card2, "card2");
+
+        card3.setBackground(new java.awt.Color(0, 102, 102));
+
+        jLabel3.setText("Informacje dotyczące bonusów, power upów i inne");
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bomberman/jFrame/images/man.png"))); // NOI18N
+
+        javax.swing.GroupLayout card3Layout = new javax.swing.GroupLayout(card3);
+        card3.setLayout(card3Layout);
+        card3Layout.setHorizontalGroup(
+            card3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(card3Layout.createSequentialGroup()
+                .addContainerGap(260, Short.MAX_VALUE)
+                .addGroup(card3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, card3Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(182, 182, 182))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, card3Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(64, 64, 64))))
+        );
+        card3Layout.setVerticalGroup(
+            card3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(card3Layout.createSequentialGroup()
+                .addGap(113, 113, 113)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel7)
+                .addContainerGap(86, Short.MAX_VALUE))
+        );
+
+        displayPanel.add(card3, "card3");
+
+        javax.swing.GroupLayout instructionsPanelLayout = new javax.swing.GroupLayout(instructionsPanel);
+        instructionsPanel.setLayout(instructionsPanelLayout);
+        instructionsPanelLayout.setHorizontalGroup(
+            instructionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(buttonsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(displayPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        instructionsPanelLayout.setVerticalGroup(
+            instructionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, instructionsPanelLayout.createSequentialGroup()
+                .addComponent(displayPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        mainPanel.add(instructionsPanel, "instructionsCard");
+
+        loginPanel.setBackground(new java.awt.Color(102, 255, 204));
+
+        jLabel9.setText("Login:");
+
+        jLabel10.setText("Hasło:");
+
+        passwordTextField.setToolTipText("Enter your password!");
+
+        logInButton.setText("Zaloguj");
+        logInButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logInButtonMouseClicked(evt);
+            }
+        });
+
+        rejestrButton.setText("Rejestracja");
+        rejestrButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rejestrButtonMouseClicked(evt);
+            }
+        });
+        rejestrButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rejestrButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setText("     Jeżeli chcesz się zalogować - wypełnij dane i kliknij <zaloguj>.");
+
+        jLabel12.setText("Jeżeli chcesz stworzyć konto - wypełnij dane i kliknij <rejestracja>.");
+
+        backFromLoginButton.setText("Wróć");
+        backFromLoginButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backFromLoginButtonMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout loginPanelLayout = new javax.swing.GroupLayout(loginPanel);
+        loginPanel.setLayout(loginPanelLayout);
+        loginPanelLayout.setHorizontalGroup(
+            loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loginPanelLayout.createSequentialGroup()
+                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(loginPanelLayout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(loginPanelLayout.createSequentialGroup()
+                                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(loginPanelLayout.createSequentialGroup()
+                                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel9)
+                                            .addComponent(jLabel10))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(passwordTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+                                            .addComponent(loginTextField))
+                                        .addGap(25, 25, 25))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginPanelLayout.createSequentialGroup()
+                                        .addComponent(logInButton)
+                                        .addGap(18, 18, 18)))
+                                .addComponent(rejestrButton))
+                            .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel12))))
+                    .addGroup(loginPanelLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(backFromLoginButton)))
+                .addContainerGap(142, Short.MAX_VALUE))
+        );
+        loginPanelLayout.setVerticalGroup(
+            loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loginPanelLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel12)
+                .addGap(78, 78, 78)
+                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(loginTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(logInButton)
+                    .addComponent(rejestrButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                .addComponent(backFromLoginButton)
+                .addGap(19, 19, 19))
+        );
+
+        mainPanel.add(loginPanel, "loginCard");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonStartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonStartMouseClicked
+    private void instructions1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_instructions1ActionPerformed
         // TODO add your handling code here:
-        System.out.println("Rozpoczynanie rozgrywki!!!!!");
-    }//GEN-LAST:event_buttonStartMouseClicked
+    }//GEN-LAST:event_instructions1ActionPerformed
 
-    private void buttonExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExitMouseClicked
+    private void helpButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_helpButtonMouseClicked
+        CardLayout mainCards = (CardLayout) mainPanel.getLayout();
+        mainCards.show( mainPanel, "instructionsCard");
+    }//GEN-LAST:event_helpButtonMouseClicked
+
+    private void instructions1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_instructions1MouseClicked
+        CardLayout instructionsCards = (CardLayout) displayPanel.getLayout();
+        instructionsCards.show(displayPanel, "card1");        // TODO add your handling code here:
+    }//GEN-LAST:event_instructions1MouseClicked
+
+    private void instructions2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_instructions2MouseClicked
+        CardLayout instructionsCards = (CardLayout) displayPanel.getLayout();
+        instructionsCards.show(displayPanel, "card2");        // TODO add your handling code here:
+    }//GEN-LAST:event_instructions2MouseClicked
+
+    private void instrictions3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_instrictions3MouseClicked
+        CardLayout instructionsCards = (CardLayout) displayPanel.getLayout();
+        instructionsCards.show(displayPanel, "card3");        // TODO add your handling code here:
+    }//GEN-LAST:event_instrictions3MouseClicked
+
+    private void startButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_startButtonMouseClicked
+        JFileChooser fc=new JFileChooser();
+    int returnVal=fc.showOpenDialog(this);
+    if (returnVal == JFileChooser.APPROVE_OPTION) {
+    String sciezka =  fc.getSelectedFile().getAbsolutePath();
+    MapLoader testMap = new MapLoader();
+            try {
+                testMap.loadMap(sciezka);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+     }
+    }//GEN-LAST:event_startButtonMouseClicked
+
+    private void backFromInstButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backFromInstButtonMouseClicked
+        CardLayout mainCards = (CardLayout) mainPanel.getLayout();
+        mainCards.show(mainPanel, "welcomeCard");
+    }//GEN-LAST:event_backFromInstButtonMouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        System.exit(0);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void rejestrButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rejestrButtonActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_buttonExitMouseClicked
+    }//GEN-LAST:event_rejestrButtonActionPerformed
 
+    private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_helpButtonActionPerformed
+
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+        CardLayout mainCards = (CardLayout) mainPanel.getLayout();
+        mainCards.show( mainPanel, "loginCard");       // TODO add your handling code here:
+    }//GEN-LAST:event_loginButtonActionPerformed
+
+    private void logInButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logInButtonMouseClicked
+        String login = loginTextField.getText();
+        String password = passwordTextField.getText();
+        String md5hash = MD5(password);
+        try {
+            user.login(login,md5hash);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        welcomeLabel.setText("Witaj" + user.getLogin());
+    }//GEN-LAST:event_logInButtonMouseClicked
+
+    private void rejestrButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rejestrButtonMouseClicked
+        
+        String login = loginTextField.getText();
+        String password = passwordTextField.getText();
+        String md5hash = MD5(password);
+       // char[] password = passwordTextField.getPassword();
+       // String md5hash = MD5(password.toString());
+       // System.out.println(password.toString());
+       
+       
+        try {
+            user.addUser(login,md5hash);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }//GEN-LAST:event_rejestrButtonMouseClicked
+
+    private void backFromLoginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backFromLoginButtonMouseClicked
+       CardLayout mainCards = (CardLayout) mainPanel.getLayout();
+        mainCards.show(mainPanel, "welcomeCard"); // TODO add your handling code here:
+    }//GEN-LAST:event_backFromLoginButtonMouseClicked
+
+    private void backFromInstButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backFromInstButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backFromInstButtonActionPerformed
+    public String MD5(String md5) {
+   try {
+        java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
+        byte[] array = md.digest(md5.getBytes());
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < array.length; ++i) {
+          sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100).substring(1,3));
+       }
+        return sb.toString();
+    } catch (java.security.NoSuchAlgorithmException e) {
+    }
+    return null;
+}
     /**
      * @param args the command line arguments
      */
@@ -117,12 +612,47 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
     }
+    
+    
+    
+    /*public class DataBase*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonExit;
-    private javax.swing.JButton buttonStart;
+    private javax.swing.JButton backFromInstButton;
+    private javax.swing.JButton backFromLoginButton;
+    private javax.swing.JPanel buttonsPanel;
+    private javax.swing.JPanel card1;
+    private javax.swing.JPanel card2;
+    private javax.swing.JPanel card3;
+    private javax.swing.JPanel displayPanel;
+    private javax.swing.JButton helpButton;
+    private javax.swing.JRadioButton instrictions3;
+    private javax.swing.JRadioButton instructions1;
+    private javax.swing.JRadioButton instructions2;
+    private javax.swing.ButtonGroup instructionsButtonsGroup;
+    private javax.swing.JPanel instructionsPanel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel logoLabel;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton logInButton;
+    private javax.swing.JButton loginButton;
+    private javax.swing.JPanel loginPanel;
+    private javax.swing.JTextField loginTextField;
+    private javax.swing.JPanel mainPanel;
+    private javax.swing.JPasswordField passwordTextField;
+    private javax.swing.JButton rejestrButton;
+    private javax.swing.JButton startButton;
+    private javax.swing.JLabel welcomeLabel;
+    private javax.swing.JPanel welcomePanel;
     // End of variables declaration//GEN-END:variables
 }
