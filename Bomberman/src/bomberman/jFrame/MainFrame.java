@@ -413,9 +413,8 @@ public class MainFrame extends javax.swing.JFrame {
                                         .addComponent(logInButton)
                                         .addGap(18, 18, 18)))
                                 .addComponent(rejestrButton))
-                            .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel12))))
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(loginPanelLayout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(backFromLoginButton)))
@@ -486,7 +485,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_instrictions3MouseClicked
 
     private void startButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_startButtonMouseClicked
-        JFileChooser fc=new JFileChooser();
+    /*    JFileChooser fc=new JFileChooser();
     int returnVal=fc.showOpenDialog(this);
     if (returnVal == JFileChooser.APPROVE_OPTION) {
     String sciezka =  fc.getSelectedFile().getAbsolutePath();
@@ -496,7 +495,8 @@ public class MainFrame extends javax.swing.JFrame {
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
-     }
+     } */
+        MapFrame mapFrame = new MapFrame();
     }//GEN-LAST:event_startButtonMouseClicked
 
     private void backFromInstButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backFromInstButtonMouseClicked

@@ -20,6 +20,18 @@ public class MapLoader {
     int rows;
     int cols;
     
+    public int getRows(){
+        return rows;
+    }
+     public int getCols(){
+        return cols;
+    }
+    
+    public int [][] getMap(){
+    return map;
+    
+    }
+    
     public void loadMap(String path) throws FileNotFoundException{
          this.sciezka = path;
          System.out.println("Ścieżka"+sciezka);
