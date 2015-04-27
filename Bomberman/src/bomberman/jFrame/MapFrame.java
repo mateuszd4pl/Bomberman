@@ -7,8 +7,6 @@ package bomberman.jFrame;
 
 import bomberman.maps.MapLoader;
 import bomberman.panels.MapPanel;
-import bombermanTimer.Timer;
-import bombermanTimer.TimerEvent;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -162,34 +160,6 @@ public class MapFrame extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        
-        
-        
-        
-        Timer timer = new Timer();
-        
-        timer.addEvent(new TimerEvent() {
-            @Override
-            public void tick() {
-           System.out.println("1");
-            }
-        });
-        timer.addEvent(new TimerEvent() {
-            @Override
-            public void tick() {
-           System.out.println("2");
-            }
-        });timer.addEvent(new TimerEvent() {
-            @Override
-            public void tick() {
-           System.out.println("3");
-            }
-        });
-        
-        timer.start();
-        
-        
-        
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

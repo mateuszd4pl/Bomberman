@@ -24,8 +24,7 @@ public class TimerThread extends Thread {
       startTime = System.nanoTime();
       
       while(true){
-        //polimorfizm
-        //timer jak zrobic osobny watek w osobnej klasie i zeby to wyslac potem do labelki w mapPanelu + przeslanie refer
+          //timer jak zrobic osobny watek w osobnej klasie i zeby to wyslac potem do labelki w mapPanelu + przeslanie refer
       }
    }
    public void captureTime(){
@@ -37,4 +36,3 @@ public class TimerThread extends Thread {
 
 // jak zrobić potworki - na jednym watku czy kazdy potworek na innym
 // potworek (na nowym watku) sie rusza i jak przerysować to w mapPanelu w tablicy
-// watki zapetlic na true, i gdy bede go chcial przerwac = zmienna podtrzymujaca ten watek na false, a potem join(); koin czeka az watek sie zakonczy//nie uzywac stopa();
